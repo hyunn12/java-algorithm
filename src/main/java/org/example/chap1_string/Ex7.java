@@ -26,7 +26,7 @@ public class Ex7 {
         str = str.toLowerCase();
 
         boolean isCorrect = true;
-        for (int i = 0; i < str.length(); i++) {
+        for (int i = 0; i < str.length() / 2; i++) {
             char left = str.charAt(i);
             char right = str.charAt((str.length() - 1) - i);
 
