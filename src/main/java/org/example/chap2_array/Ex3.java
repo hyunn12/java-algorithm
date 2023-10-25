@@ -34,7 +34,6 @@ public class Ex3 {
 
     public static void solution(int num, int[] aArr, int[] bArr) {
         List<String> answer = new ArrayList<>();
-        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < num; i++) {
             answer.add(defineWinner(aArr[i], bArr[i]));
         }
