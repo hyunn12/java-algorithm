@@ -1,6 +1,5 @@
 package org.example.chap2_array;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -21,26 +20,19 @@ public class Ex5 {
     // 에라토스테네스의 체
     public static int solution(int num) {
         boolean[] primes = new boolean[num + 1];
-        Arrays.fill(primes, true); // 배열 초기화
+        int answer = 0;
 
-        int count = 0;
-        primes[0] = false;
-        primes[1] = false;
+        for (int i = 2; i <= num; i++) {
+            if (!primes[i]) {
+                answer++;
 
-        if (num == 2) return 1;
-
-        // 자연수들 중 k 제외한 k의 배수 제외
-        int sqrt = (int) Math.sqrt(num);
-        for (int i = 2; i <= sqrt; i++) {
-            if (primes[i]) {
-                count++;
-                for (int j = i * i; j <= num; j++) {
-                    primes[j] = false;
+                for (int j = i; j <= num; j = j + i) {
+                    primes[j] = true;
                 }
             }
         }
 
-        return count;
+        return answer;
     }
 
 }
