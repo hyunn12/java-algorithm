@@ -19,9 +19,9 @@ public class Ex11 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
-        int[][] arr = new int[n+1][6];
-        for (int i = 1; i <= n; i++) { // 학생 번호
-            for (int j = 1; j <= 5; j++) { // 학년
+        int[][] arr = new int[n][5];
+        for (int i = 0; i < n; i++) { // 학생 번호
+            for (int j = 0; j < 5; j++) { // 학년
                 arr[i][j] = in.nextInt();
             }
         }
@@ -32,12 +32,10 @@ public class Ex11 {
         int answer = 0;
         int max = 0;
 
-        // 학생의 번호는 인덱스+1 이므로 1부터 시작
-        for (int i = 1; i <= n; i++) { // 학생
+        for (int i = 0; i < n; i++) { // 학생
             int count = 0;
-            for (int j = 1; j <= n; j++) { // 학생별 반
-                // 학년의 개수는 5개 고정이므로
-                for (int k = 1; k <= 5; k++) { // 그 반에 속했던 학생
+            for (int j = 0; j < n; j++) { // 학생별 반
+                for (int k = 0; k < 5; k++) { // 그 반에 속했던 학생
                     if (arr[i][k] == arr[j][k]) {
                         count++;
                         break; // 같은 반을 했던 학생 수를 계산하는 것이므로 같은 학생을 여러번 계산하면 안됨
@@ -46,7 +44,7 @@ public class Ex11 {
             }
             if (count > max) {
                 max = count;
-                answer = i;
+                answer = i+1; // 학생의 번호는 인덱스+1
             }
         }
         return answer;
